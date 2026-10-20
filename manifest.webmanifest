@@ -2,14 +2,17 @@
   "id": "./",
   "name": "Handstand Practice",
   "short_name": "Handstand",
-  "description": "Programma e diario offline per Handstand Practice.",
+  "description": "Casa V2.1: handstand, forza, mobilità M3 e diario offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone"],
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
   "orientation": "any",
-  "background_color": "#f3f5f8",
-  "theme_color": "#2457e6",
+  "background_color": "#101820",
+  "theme_color": "#18252f",
   "icons": [
     {
       "src": "./icon-192.png",

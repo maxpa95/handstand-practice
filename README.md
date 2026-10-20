@@ -1,27 +1,35 @@
-# Handstand Practice PWA
+# Handstand Practice — Casa V2.1
 
-Questa cartella è pronta per essere pubblicata come sito statico (per esempio con GitHub Pages) e installata come PWA su Android/Chrome.
+Programma e diario installabile sul telefono, utilizzabile anche offline dopo il primo caricamento.
 
-## File
+Apri **https://maxpa95.github.io/handstand-practice/**.
 
-- `index.html` — il programma originale, con soli metadati PWA e registrazione del service worker aggiunti.
-- `manifest.webmanifest` — nome, icone e modalità standalone.
-- `sw.js` — cache dell'app shell per l'uso offline.
-- `icon-192.png`, `icon-512.png` — icone Android/PWA.
+## Sul telefono
 
-## Pubblicazione su GitHub Pages
+- Android / Chrome: menu ⋮ → **Installa app**, oppure **Aggiungi alla schermata Home**.
+- iPhone / Safari: **Condividi → Aggiungi alla schermata Home**; abilita Apri come app web se disponibile.
+- Se l’icona esiste già, chiudi e riapri mentre sei online. La nuova versione si riconosce da **Casa V2.1**. Se necessario ricarica la pagina.
 
-1. Crea un repository, ad esempio `handstand-practice`.
-2. Carica **il contenuto di questa cartella** nella root del repository.
-3. In GitHub vai in **Settings → Pages**.
-4. Scegli **Deploy from a branch**, branch `main`, cartella `/ (root)`.
-5. Apri l'indirizzo `https://TUO-UTENTE.github.io/handstand-practice/` in Chrome sul Pixel.
-6. Dal menu di Chrome usa **Installa app** / **Aggiungi alla schermata Home**.
+## Diario e trasferimento
 
-## Dati del diario
+Il diario resta nel browser/dispositivo. L’app pubblica parte senza sedute personali incorporate.
 
-Il diario usa `localStorage`: resta locale al browser/dispositivo. Per trasferire i dati fra PC e telefono usa **Esporta backup JSON** e **Importa backup JSON** già presenti nell'app.
+Al primo aggiornamento recupera gli archivi V3, PPL e Casa presenti sullo stesso sito; mantiene le vecchie memorie e archivia una bozza V3 aperta senza trasformarla in una seduta conclusa. Uno stato Casa V2 già presente ha precedenza.
 
-## Aggiornamenti futuri
+Per trasferire il backup da un altro dispositivo: invia il JSON al telefono, apri **Dati**, attiva **Ripristina anche impostazioni e bozza** se vuoi continuare esattamente da quel punto e usa **Importa backup**. Il ripristino completo richiede che non ci sia una seduta aperta. L’importazione senza ripristino unisce i record senza duplicarli. Non c’è sincronizzazione automatica fra PC e telefono.
 
-Se modifichi `index.html`, cambia anche `CACHE_NAME` in `sw.js` (per esempio da `...-v1` a `...-v2`) così Chrome scarica subito la nuova versione dell'app.
+## Versione 2.1 — 20 ottobre 2026
+
+- Modalità handstand selezionabili direttamente, con requisiti mancanti spiegati nello stesso punto.
+- Risultati sotto l’esercizio, conferma tecnica rapida e rivalutazione del livello attuale.
+- Sequenze distinte dalle singole transizioni e prossimi passi visibili.
+- Sedute M3 complete/parziali per fase, calendario di sei settimane e proposta del retest.
+- Cache aggiornata e navigazione online che recupera la versione attuale, con fallback offline.
+
+## File pubblici
+
+- `index.html`: applicazione autonoma Casa V2.1; nessun backup personale incorporato.
+- `manifest.webmanifest`, `icon-192.png`, `icon-512.png`: installazione e icone.
+- `sw.js`: app shell offline. La cache è limitata a questa app; un aggiornamento non cancella il diario.
+
+GitHub Pages pubblica il branch `main`, cartella root. Per gli aggiornamenti, sostituire insieme app shell e service worker e assegnare una nuova versione alla cache.
